@@ -5,7 +5,9 @@
   "dependencies": {
     "flow-bin": "^0.52.0",
     "history": "^4.6.3",
+    "initializable-reducer": "^1.0.0",
     "localforage": "^1.5.0",
+    "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
