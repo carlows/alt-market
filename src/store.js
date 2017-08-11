@@ -6,7 +6,7 @@ import { routerMiddleware, routerReducer } from 'react-router-redux'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createHistory from 'history/createBrowserHistory';
 import localForage from 'localforage'
-import reducers from '../common/reducers';
+import reducers from './common/reducers';
 
 // enable redux dev tools
 const composeEnhancers = composeWithDevTools({});

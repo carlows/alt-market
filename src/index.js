@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import ConnectedRouter from 'react-router-redux/ConnectedRouter.js'
 import { Provider } from 'react-redux';
-import App from './main/';
-import { history, setupStore } from './main/store.js';
+import App from './App.js';
+import { history, setupStore } from './store.js';
 import registerServiceWorker from './registerServiceWorker';
 
 type State        = { isLoading: boolean, store: Object };
