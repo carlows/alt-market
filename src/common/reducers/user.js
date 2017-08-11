@@ -9,12 +9,7 @@ const initialState = {
 function user(state: Object = initialState, { type, payload }: Object) {
   switch (type) {
     case 'LOGGED_IN':
-      if (payload.status >= 400) {
-        return state;
-      }
-
       return {
-        ...payload.body.user,
         is_logged_in: true
       };
     default:
