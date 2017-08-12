@@ -1,29 +1,23 @@
 // @flow
 
 import React from 'react';
-import { connect } from 'react-redux';
+import { LoginButton } from '../components/';
 
-type Props        = { dispatch: () => mixed };
+type Props        = void;
 type State        = void;
 
 /**
  * display the login view
  */
 class Login extends React.Component<void, Props, State> {
-  login() {
-    this.props.dispatch({ type: 'LOGGED_IN' });
-  }
-
   render() {
     return (
       <div>
         <h1>Welcome!</h1>
-        <button onClick={this.login.bind(this)}>Login</button>
+        <LoginButton />
       </div>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({ dispatch });
-
-export default connect(mapDispatchToProps)(Login);
+export default Login;
