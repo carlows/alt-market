@@ -12,7 +12,7 @@ type State        = void;
 class Feed extends React.Component<void, Props, State> {
   render() {
     return (
-      <div>
+      <div id="feed">
         <h1>Feed</h1>
         <LogoutButton />
       </div>

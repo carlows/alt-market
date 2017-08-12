@@ -7,12 +7,12 @@ type Props        = void;
 type State        = void;
 
 /**
- * display the login view
- */
+* display the login view
+*/
 class Login extends React.Component<void, Props, State> {
   render() {
     return (
-      <div>
+      <div id="login">
         <h1>Welcome!</h1>
         <LoginButton />
       </div>
