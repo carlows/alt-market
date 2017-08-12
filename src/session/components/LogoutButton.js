@@ -6,13 +6,13 @@ type Props        = { dispatch: () => mixed };
 type State        = void;
 
 class LogoutButton extends React.Component<void, Props, State> {
-  logout() {
+  logout = () => {
     this.props.dispatch(logout());
   }
 
   render() {
     return (
-      <button onClick={this.logout.bind(this)}>Logout</button>
+      <button onClick={this.logout}>Logout</button>
     );
   }
 }

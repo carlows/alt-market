@@ -2,7 +2,8 @@
 
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
-import { routerMiddleware, routerReducer } from 'react-router-redux'
+import { routerMiddleware, routerReducer } from 'react-router-redux';
+import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createHistory from 'history/createBrowserHistory';
 import localForage from 'localforage'
@@ -17,7 +18,8 @@ const historyMiddleware = routerMiddleware(history);
 
 // gather all middlewares order matters
 const middlewares = [
-  historyMiddleware
+  historyMiddleware,
+  thunk
 ];
 
 // define reducers combineReducers
