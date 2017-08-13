@@ -5,13 +5,16 @@
   "dependencies": {
     "axios": "^0.16.2",
     "flow-bin": "^0.52.0",
+    "fs-extra": "^4.0.1",
     "history": "^4.6.3",
     "initializable-reducer": "^1.0.0",
     "localforage": "^1.5.0",
     "lodash": "^4.17.4",
+    "node-fetch": "^1.7.2",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.6",
+    "react-relay": "^1.1.0",
     "react-router": "^4.1.2",
     "react-router-redux": "next",
     "react-scripts": "1.0.11",
@@ -26,12 +29,19 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "flow": "flow"
+    "flow": "flow",
+    "get-schema": "node -r dotenv/config scripts/getSchema.js",
+    "relay": "relay-compiler --src ./src --schema schema.graphql"
   },
   "devDependencies": {
+    "babel-plugin-relay": "^1.1.0",
     "enzyme": "^2.9.1",
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-prettier": "^2.1.2",
-    "prettier": "^1.5.3"
+    "prettier": "^1.5.3",
+    "relay-compiler": "^1.1.0"
+  },
+  "babel": {
+    "plugins": ["relay"]
   }
 }

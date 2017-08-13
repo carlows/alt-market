@@ -12,6 +12,11 @@ const apiEndpoints = {
       email,
       password
     }
+  }),
+
+  graphqlSchema: ({ operation, variables }) => axios.post(buildUrl('/graphql'), {
+    query: operation.text,
+    variables
   })
 };
 
