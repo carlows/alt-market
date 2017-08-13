@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "babel-runtime": "^6.25.0",
     "flow-bin": "^0.52.0",
     "fs-extra": "^4.0.1",
     "history": "^4.6.3",
@@ -40,8 +41,5 @@
     "eslint-plugin-prettier": "^2.1.2",
     "prettier": "^1.5.3",
     "relay-compiler": "^1.1.0"
-  },
-  "babel": {
-    "plugins": ["relay"]
   }
 }
