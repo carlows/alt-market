@@ -5,8 +5,9 @@ import ReactDOM from 'react-dom';
 import ConnectedRouter from 'react-router-redux/ConnectedRouter.js'
 import { Provider } from 'react-redux';
 import App from './App.js';
-import { history, setupStore } from './store.js';
+import { history, setupStore, apolloClient } from './store.js';
 import registerServiceWorker from './registerServiceWorker';
+import { ApolloProvider } from 'react-apollo';
 
 type State        = { isLoading: boolean, store: Object };
 type Props        = Object;
@@ -28,11 +29,11 @@ class Root extends Component<void, Props, State> {
     const { isLoading, store } = this.state;
 
     return isLoading ? <i>Loading...</i> : (
-      <Provider store={store}>
+      <ApolloProvider store={store} client={apolloClient}>
         <ConnectedRouter history={history}>
           <App />
         </ConnectedRouter>
-      </Provider>
+      </ApolloProvider>
     );
   }
 };
