@@ -1,11 +1,6 @@
 // @flow
 
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
-import LoginForm from './LoginForm';
-
-export {
-  LoginButton,
-  LoginForm,
-  LogoutButton
-};
+export { default as LoginButton } from './LoginButton';
+export { default as LogoutButton } from './LogoutButton';
+export { default as LoginForm } from './LoginForm';
+export { default as SignUpForm } from './SignUpForm';

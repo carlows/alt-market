@@ -10,6 +10,7 @@ const initialState = {
 
 function user(state: Object = initialState, { type, payload }: Object) {
   switch (type) {
+    case 'SIGNUP_SUCCESS':
     case 'LOGIN_SUCCESS':
       return {
         is_logged_in: true,
@@ -20,9 +21,6 @@ function user(state: Object = initialState, { type, payload }: Object) {
   }
 }
 
-export {
-  user,
-  initialState
-};
+export { user, initialState };
 
 export default enableInitializing(user);

@@ -5,21 +5,48 @@ import { connect } from 'react-redux';
 import { LocalForm } from 'react-redux-form';
 import { TextInput } from '../../common/components/';
 import { required, email, minLength } from '../../common/validations';
-import { login } from '../actions';
+import { signUp } from '../actions';
 
 type DefaultProps = void;
 type Props = Object;
 type State = void;
 
-class LoginForm extends React.Component<DefaultProps, Props, State> {
+/**
+ * component to render a signup form and handle its submition
+ */
+class SignUpForm extends React.Component<DefaultProps, Props, State> {
   handleSubmit = (values: Object) => {
-    const { login } = this.props;
-    login(values);
+    const { signUp } = this.props;
+    signUp(values);
   };
 
   render() {
     return (
       <LocalForm onSubmit={this.handleSubmit}>
+        <TextInput
+          id="first-name"
+          label="Firstname"
+          model=".firstName"
+          validators={{
+            required
+          }}
+          messages={{
+            required: 'Required field.'
+          }}
+        />
+        <br />
+        <TextInput
+          id="last-name"
+          label="Lastname"
+          model=".lastName"
+          validators={{
+            required
+          }}
+          messages={{
+            required: 'Required field.'
+          }}
+        />
+        <br />
         <TextInput
           id="email"
           label="Email"
@@ -51,7 +78,7 @@ class LoginForm extends React.Component<DefaultProps, Props, State> {
         <br />
         <div>
           <button id="submit" type="submit">
-            Login
+            SignUp
           </button>
         </div>
       </LocalForm>
@@ -60,7 +87,7 @@ class LoginForm extends React.Component<DefaultProps, Props, State> {
 }
 
 const mapDispatchToProps = dispatch => ({
-  login: values => dispatch(login(values))
+  signUp: values => dispatch(signUp(values))
 });
 
-export default connect(null, mapDispatchToProps)(LoginForm);
+export default connect(null, mapDispatchToProps)(SignUpForm);
