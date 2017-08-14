@@ -1,6 +1,6 @@
 {
+  "parser": "babel-eslint",
   "extends": [
-    "react-app",
     "prettier",
     "prettier/flowtype",
     "prettier/react"

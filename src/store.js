@@ -1,4 +1,4 @@
-/* @flow */
+// @flow
 
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { persistStore, autoRehydrate } from 'redux-persist';
@@ -13,7 +13,7 @@ import _ from 'lodash';
 
 // Setup Apollo client
 const networkInterface = createNetworkInterface({
-  uri: 'http://localhost:4000/graphql'
+  uri: process.env.REACT_APP_API_URL
 });
 
 export const apolloClient = new ApolloClient({
