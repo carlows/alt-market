@@ -3,14 +3,17 @@
 import { enableInitializing } from 'initializable-reducer';
 
 const initialState = {
-  is_logged_in: false
+  is_logged_in: false,
+  token: '',
+  message: ''
 };
 
 function user(state: Object = initialState, { type, payload }: Object) {
   switch (type) {
-    case 'LOGGED_IN':
+    case 'LOGIN_SUCCESS':
       return {
-        is_logged_in: true
+        is_logged_in: true,
+        token: payload.jwt
       };
     default:
       return state;

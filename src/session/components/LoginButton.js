@@ -6,13 +6,13 @@ type Props        = { dispatch: () => mixed };
 type State        = void;
 
 class LoginButton extends React.Component<void, Props, State> {
-  login() {
+  login = () => {
     this.props.dispatch(login());
   }
 
   render() {
     return (
-      <button onClick={this.login.bind(this)}>Login</button>
+      <button onClick={this.login}>Login</button>
     );
   }
 }
