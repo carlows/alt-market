@@ -8,14 +8,14 @@ import api from '../../common/api';
  *
  * This is how it would look like: https://medium.com/@machadogj/async-action-creators-with-redux-thunk-83af81994250
  */
-export function login({ email, password }) {
-  return async (dispatch) => {
-    const onSuccess = (success) => {
+export function login({ email, password }: Object) {
+  return async (dispatch: Function) => {
+    const onSuccess = success => {
       dispatch(loginSuccess(success));
       return success;
     };
 
-    const onError = (error) => {
+    const onError = error => {
       /*
        * In case error.status is >= 500 we might want to process this error in another function
        * the idea is to process al >= errors in the same place.
@@ -35,14 +35,14 @@ export function login({ email, password }) {
   };
 }
 
-export function loginSuccess(payload) {
+export function loginSuccess(payload: Object) {
   return {
     type: 'LOGIN_SUCCESS',
     payload: payload.data
   };
-};
+}
 
-export function loginError(payload) {
+export function loginError(payload: Object) {
   return {
     type: 'LOGIN_ERROR',
     payload: payload.response

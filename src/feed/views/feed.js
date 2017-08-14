@@ -4,8 +4,8 @@ import React from 'react';
 import { LogoutButton } from '../../session/components/';
 import { PublicationList } from '../components';
 
-type Props        = { dispatch: () => mixed };
-type State        = void;
+type Props = { dispatch: () => mixed };
+type State = void;
 
 /**
  * display the Feed view

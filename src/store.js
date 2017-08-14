@@ -9,12 +9,12 @@ import createHistory from 'history/createBrowserHistory';
 import localForage from 'localforage';
 import reducers from './common/reducers';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
+import _ from 'lodash';
 
 // Setup Apollo client
 const networkInterface = createNetworkInterface({
   uri: 'http://localhost:4000/graphql'
 });
-
 
 export const apolloClient = new ApolloClient({
   networkInterface
@@ -61,19 +61,18 @@ export function setupStore(onStorePersisted: () => mixed) {
   // Configure Middleware for authentication in Apollo
   // http://dev.apollodata.com/react/auth.html#Header
   // We do it here so we can get access to the store object
-  networkInterface.use([{
-    applyMiddleware(req, next) {
-      if (!req.options.headers) {
-        req.options.headers = {};  // Create the header object if needed.
+  networkInterface.use([
+    {
+      applyMiddleware(req, next) {
+        const { user } = store.getState();
+        const token = user.token;
+        const headers = token ? { token: `JWT ${token}` } : {};
+
+        req.options.headers = _.extend({}, req.options.headers, headers);
+        next();
       }
-
-      const { user }= store.getState();
-      const token = user.token;
-      req.options.headers.authorization = token ? `JWT ${token}` : null;
-
-      next();
     }
-  }]);
+  ]);
 
   return store;
 }

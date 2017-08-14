@@ -2,15 +2,14 @@
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import ConnectedRouter from 'react-router-redux/ConnectedRouter.js'
-import { Provider } from 'react-redux';
+import ConnectedRouter from 'react-router-redux/ConnectedRouter.js';
 import App from './App.js';
 import { history, setupStore, apolloClient } from './store.js';
 import registerServiceWorker from './registerServiceWorker';
 import { ApolloProvider } from 'react-apollo';
 
-type State        = { isLoading: boolean, store: Object };
-type Props        = Object;
+type State = { isLoading: boolean, store: Object };
+type Props = Object;
 
 /**
  * holds the application dependencies
@@ -28,16 +27,15 @@ class Root extends Component<void, Props, State> {
   render() {
     const { isLoading, store } = this.state;
 
-    return isLoading ? <i>Loading...</i> : (
-      <ApolloProvider store={store} client={apolloClient}>
-        <ConnectedRouter history={history}>
-          <App />
-        </ConnectedRouter>
-      </ApolloProvider>
-    );
+    return isLoading
+      ? <i>Loading...</i>
+      : <ApolloProvider store={store} client={apolloClient}>
+          <ConnectedRouter history={history}>
+            <App />
+          </ConnectedRouter>
+        </ApolloProvider>;
   }
-};
-
+}
 
 ReactDOM.render(<Root />, document.getElementById('root'));
 registerServiceWorker();
