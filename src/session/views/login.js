@@ -3,8 +3,8 @@
 import React from 'react';
 import { LoginForm } from '../components/';
 
-type Props        = void;
-type State        = void;
+type Props = void;
+type State = void;
 
 /**
 * display the login view

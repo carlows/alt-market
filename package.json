@@ -34,7 +34,9 @@
   "devDependencies": {
     "enzyme": "^2.9.1",
     "eslint-config-prettier": "^2.3.0",
+    "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-react": "^7.2.1",
     "prettier": "^1.5.3"
   }
 }
