@@ -5,7 +5,6 @@
   "dependencies": {
     "apollo-client": "^1.9.1",
     "axios": "^0.16.2",
-    "flow-bin": "^0.52.0",
     "graphql-tag": "^2.4.2",
     "history": "^4.6.3",
     "initializable-reducer": "^1.0.0",
@@ -32,11 +31,14 @@
     "flow": "flow"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "enzyme": "^2.9.1",
+    "eslint": "^4.4.1",
     "eslint-config-prettier": "^2.3.0",
     "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-prettier": "^2.1.2",
     "eslint-plugin-react": "^7.2.1",
+    "flow-bin": "^0.52.0",
     "prettier": "^1.5.3"
   }
 }
