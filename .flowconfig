@@ -1,7 +1,6 @@
 [ignore]
 .*/node_modules/eslint-plugin-jsx-a11y/.*
 .*/node_modules/promise/.*
-.*/__tests__/.*
 
 [include]
 
