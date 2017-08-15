@@ -34,3 +34,14 @@ export function createThunk(type: string, fn: (payload: any) => any) {
     });
   };
 }
+
+/**
+ * FIX for: https://github.com/apollographql/react-apollo/issues/993
+ *
+ * Basically, when using 'cache-and-network' in tests, some of our mocks don't
+ * get recognized, so we are setting a global variable in our test mocks
+ * to overwrite this configuration.
+ *
+ */
+export const appFetchPolicy =
+  process.env.REACT_APP_FETCH_POLICY || 'cache-and-network';

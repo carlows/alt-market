@@ -61,18 +61,19 @@ export function setupStore(onStorePersisted: () => mixed) {
   // Configure Middleware for authentication in Apollo
   // http://dev.apollodata.com/react/auth.html#Header
   // We do it here so we can get access to the store object
-  networkInterface.use([
-    {
-      applyMiddleware(req, next) {
-        const { user } = store.getState();
-        const token = user.token;
-        const headers = token ? { Authorization: `JWT ${token}` } : {};
+  const networkMiddleware = {
+    applyMiddleware: (req, next) => {
+      const { user } = store.getState();
+      const token = user.token;
+      const headers = token ? { Authorization: `JWT ${token}` } : {};
 
-        req.options.headers = _.extend({}, req.options.headers, headers);
-        next();
-      }
+      req.options.headers = _.extend({}, req.options.headers, headers);
+      next();
     }
-  ]);
+  };
+
+  // $FlowFixMe
+  networkInterface.use([networkMiddleware]);
 
   return store;
 }
