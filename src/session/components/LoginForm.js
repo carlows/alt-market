@@ -12,14 +12,14 @@ type Props = Object;
 type State = void;
 
 class LoginForm extends React.Component<DefaultProps, Props, State> {
-  handleSubmit = (values: Object) => {
-    const { login } = this.props;
-    login(values);
-  };
+  handleSubmit(values: Object) {
+    const { dispatch } = this.props;
+    dispatch(login(values));
+  }
 
   render() {
     return (
-      <LocalForm onSubmit={this.handleSubmit}>
+      <LocalForm onSubmit={this.handleSubmit.bind(this)}>
         <TextInput
           id="email"
           label="Email"
@@ -59,8 +59,6 @@ class LoginForm extends React.Component<DefaultProps, Props, State> {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  login: values => dispatch(login(values))
-});
+const mapDispatchToProps = dispatch => ({ dispatch });
 
 export default connect(null, mapDispatchToProps)(LoginForm);
