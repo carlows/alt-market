@@ -1,9 +1,9 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Switch } from 'react-router';
+import { Switch } from 'react-router-dom';
 import { PrivateRoute, GuestRoute } from './routes';
-import Login from './session/views/Login.js';
+import { Login, SignUp } from './session/views/';
 import Feed from './feed/views/Feed.js';
 
 class App extends Component {
@@ -12,6 +12,7 @@ class App extends Component {
       <Switch>
         <PrivateRoute exact path="/" component={Feed} />
         <GuestRoute path="/login" component={Login} />
+        <GuestRoute path="/signup" component={SignUp} />
       </Switch>
     );
   }

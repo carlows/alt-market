@@ -1,18 +1,20 @@
 // @flow
 
 import React from 'react';
-import { Redirect } from 'react-router';
+import { Redirect } from 'react-router-dom';
 
 export const renderPrivateRoute = (props: Object, params: Object) => {
   const { component: Component, user } = params;
 
   if (!user.is_logged_in) {
     return (
-      <Redirect to={{
-        pathname: '/login',
-        state: { from: props.location }
-      }} />
-    )
+      <Redirect
+        to={{
+          pathname: '/login',
+          state: { from: props.location }
+        }}
+      />
+    );
   }
 
   return <Component {...props} />;
@@ -23,10 +25,12 @@ export const renderGuestRoute = (props: Object, params: Object) => {
 
   if (user.is_logged_in) {
     return (
-      <Redirect to={{
-        pathname: '/'
-      }} />
-    )
+      <Redirect
+        to={{
+          pathname: '/'
+        }}
+      />
+    );
   }
 
   return <Component {...props} />;

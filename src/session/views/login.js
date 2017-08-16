@@ -1,6 +1,7 @@
 // @flow
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { LoginForm } from '../components/';
 
 type Props = void;
@@ -14,6 +15,12 @@ class Login extends React.Component<void, Props, State> {
     return (
       <div id="login">
         <h1>Welcome, this is the login page!</h1>
+        <h2>
+          Don't have an account?{' '}
+          <Link id="signup-link" to="/signup">
+            SignUp!
+          </Link>
+        </h2>
         <LoginForm />
       </div>
     );

@@ -1,9 +1,5 @@
 // @flow
 
-import { login } from './login';
-import { logout } from './logout';
-
-export {
-  login,
-  logout
-}
+export { login } from './login';
+export { logout } from './logout';
+export { signUp } from './signUp';
