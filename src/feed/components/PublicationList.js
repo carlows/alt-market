@@ -4,8 +4,16 @@ import React from 'react';
 import { Publication } from '../components';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import { appFetchPolicy } from '../../common/helpers';
 
-class PublicationList extends React.Component {
+type DefaultProps = void;
+type Props = {
+  submit: Function,
+  data: Object
+};
+type State = void;
+
+class PublicationList extends React.Component<DefaultProps, Props, State> {
   render() {
     // Loading will be true when the request is on the fly
     if (this.props.data.loading) {
@@ -35,9 +43,9 @@ class PublicationList extends React.Component {
   }
 }
 
-const PublicationsQuery = gql`
-  query allPublications {
-    publications(first: 100) {
+export const PublicationsQuery = gql`
+  query {
+    publications {
       edges {
         node {
           id
@@ -51,4 +59,9 @@ const PublicationsQuery = gql`
   }
 `;
 
-export default graphql(PublicationsQuery)(PublicationList);
+export default graphql(PublicationsQuery, {
+  options: {
+    fetchPolicy: appFetchPolicy,
+    pollInterval: 20000
+  }
+})(PublicationList);

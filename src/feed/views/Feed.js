@@ -3,8 +3,9 @@
 import React from 'react';
 import { LogoutButton } from '../../session/components/';
 import { PublicationList } from '../components';
+import { Link } from 'react-router-dom';
 
-type Props = { dispatch: () => mixed };
+type Props = void;
 type State = void;
 
 /**
@@ -17,6 +18,8 @@ class Feed extends React.Component<void, Props, State> {
         <h1>Feed</h1>
         <PublicationList />
         <LogoutButton />
+        <br />
+        <Link to="/profile">My Profile</Link>
       </div>
     );
   }

@@ -3,16 +3,9 @@
 jest.mock('../common/api');
 
 import React from 'react';
-import { mount } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
-import { push } from 'react-router-redux';
-import { Provider } from 'react-redux';
-import { MockedProvider } from 'react-apollo/test-utils';
-import ConnectedRouter from 'react-router-redux/ConnectedRouter.js';
-import { history, setupStore } from '../store.js';
-import Login from '../session/views/Login.js';
-import App from '../App.js';
 import { logout } from '../session/actions';
+import { setupIntegrationTests } from '../common/testHelpers';
+import { GraphQLMocks } from '../__mocks__/requests';
 
 let wrapper;
 let store;
@@ -20,20 +13,10 @@ let store;
 const flushAllPromises = () => new Promise(resolve => setImmediate(resolve));
 
 describe('Session feature', () => {
-  beforeAll(() => {
-    store = setupStore(jest.fn());
-    wrapper = mount(
-      <MockedProvider store={store}>
-        <ConnectedRouter history={history}>
-          <App />
-        </ConnectedRouter>
-      </MockedProvider>
-    );
-  });
-
   beforeEach(() => {
-    store.dispatch(logout());
-    store.dispatch(push('/login'));
+    const config = setupIntegrationTests(GraphQLMocks, '/login', false);
+    wrapper = config.wrapper;
+    store = config.store;
   });
 
   test('User should be able to login and go the feed view', async () => {
