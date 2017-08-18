@@ -5,13 +5,10 @@ import React from 'react';
 import { UserMock, PublicationMock } from '../__mocks__/data';
 import { createWaitForElement } from 'enzyme-wait';
 import { GraphQLMocks } from '../__mocks__/requests';
-import { push } from 'react-router-redux';
 
 describe('Profile feature', () => {
   test('User should be able to go to the Feed through a link', () => {
     const { wrapper, store } = setupIntegrationTests(GraphQLMocks, '/profile');
-
-    store.dispatch(push('/profile'));
 
     const link = wrapper.find("a[href='/']");
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Publication = ({ title, description, amount, currency }) => {
   return (
-    <div>
+    <div className="publication">
       <h2>
         {title}
       </h2>
